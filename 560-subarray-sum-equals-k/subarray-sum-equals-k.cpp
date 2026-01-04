@@ -1,19 +1,17 @@
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
-        int i = 0;
+        unordered_map<int, int> mp;
+        mp[0] = 1;//ki sum-k=0 mtlb mill gaya ek subarray   
+        int sum = 0;
         int count = 0;
-        while (i < nums.size()) {
-            int sum = 0;
-            int j = i;
-            while (j < nums.size()) {
-                sum += nums[j];
-                if (sum == k) {
-                    count++;
-                }
-                j++;
+        for (int a : nums) {
+            sum=sum+a;
+            if (mp.find(sum - k) != mp.end())//mtlb map mai element present h  
+            {
+                count=count+mp[sum - k];//value access kr dega
             }
-            i++;
+            mp[sum]++;
         }
         return count;
     }
