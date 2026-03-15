@@ -8,6 +8,6 @@ class Solution(object):
             else:
                 freq[num] = freq[num] + 1
 
-        for key, value in freq.items():
-            if value == 1:
-                return key
+        for j in nums:
+            if freq[j]==1:
+                return j
