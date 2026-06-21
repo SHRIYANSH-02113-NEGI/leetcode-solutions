@@ -8,6 +8,6 @@ public:
                 common.insert(a);
             }
         }
-        return vector<int>(common.begin(),common.end());
+        return vector<int> (common.begin(),common.end());
     }
 };
